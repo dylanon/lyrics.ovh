@@ -5,10 +5,14 @@ const cors = require('cors')
 var things = [];
 let appApi = express();
 let appFrontend = express();
-const portApi = 8080;
-const portFrontend = 8081;
+const portApi = process.env.PORT || 8080;
+// const portFrontend = 8081;
 
 appApi.use(cors());
+
+appApi.get('/', function(req, res) {
+  res.json({ message: 'It works!'})
+})
 
 appApi.get('/v1/:artist/:title', function (req, res) {
   if (!req.params.artist || !req.params.title) {
@@ -37,6 +41,6 @@ appApi.listen(portApi, function () {
   console.log('API listening on port ' + portApi);
 });
 
-appFrontend.listen(portFrontend, function () {
-  console.log('Frontend listening on port ' + portFrontend);
-});
+// appFrontend.listen(portFrontend, function () {
+//   console.log('Frontend listening on port ' + portFrontend);
+// });
