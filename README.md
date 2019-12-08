@@ -15,7 +15,12 @@ The documentation is available on Apiary.io: http://docs.lyricsovh.apiary.io/.
 docker-compose up
 ```
 
-Finally you can open your browser and access http://localhost:8080 to reach the frontend (while the API is available at http://localhost:8080/v1).
+Finally you can open your browser and access http://localhost:8080 to reach the frontend.
+
+The API endpoints are:
+
+- http://localhost:8080/v1/:artist/:song
+- http://localhost:8080/suggest/:term
 
 ## Deploy to Heroku
 
