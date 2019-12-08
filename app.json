@@ -1,0 +1,6 @@
+{
+  "name": "Only the Lyrics API",
+  "description": "Simple API to retrieve the lyrics of a song.",
+  "repository": "https://github.com/dylanon/lyrics.ovh",
+  "stack": "container"
+}
