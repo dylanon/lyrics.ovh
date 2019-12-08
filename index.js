@@ -2,17 +2,10 @@ const express = require('express');
 const alltomp3 = require('alltomp3');
 const request = require('request-promise');
 const cors = require('cors')
-var things = [];
 let appApi = express();
-let appFrontend = express();
 const portApi = process.env.PORT || 8080;
-// const portFrontend = 8081;
 
 appApi.use(cors());
-
-appApi.get('/', function(req, res) {
-  res.json({ message: 'It works!'})
-})
 
 appApi.get('/v1/:artist/:title', function (req, res) {
   if (!req.params.artist || !req.params.title) {
@@ -35,12 +28,8 @@ appApi.get('/suggest/:term', function (req, res) {
   });
 });
 
-appFrontend.use(express.static('frontend'));
+appApi.use(express.static('frontend'));
 
 appApi.listen(portApi, function () {
   console.log('API listening on port ' + portApi);
 });
-
-// appFrontend.listen(portFrontend, function () {
-//   console.log('Frontend listening on port ' + portFrontend);
-// });
